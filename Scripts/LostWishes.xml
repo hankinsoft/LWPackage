@@ -27,8 +27,6 @@ function LW.createUI()
         return
     end
 
-    print("Creating UI\n")
-
     -- Create a user window
     LW.userWindow = Geyser.UserWindow:new({
         name = "userWindow",
@@ -663,14 +661,7 @@ registerAnonymousEventHandler("sysConnectionEvent", "map.eventHandler")
 				<regexCodePropertyList />
 				<Trigger isActive="yes" isFolder="no" isTempTrigger="no" isMultiline="no" isPerlSlashGOption="no" isColorizerTrigger="no" isFilterTrigger="no" isSoundTrigger="no" isColorTrigger="no" isColorTriggerFg="no" isColorTriggerBg="no">
 					<name>Beep Alarm</name>
-					<script>if string.lower(matches[2]) ~= targetName
-  then
-    playSoundFile({
-      name = "super-mario-bros-coin.mp3"
-      , volume = 10
-  })
-  alert();
-end</script>
+					<script>-- TODO: Play sound</script>
 					<triggerType>0</triggerType>
 					<conditonLineDelta>0</conditonLineDelta>
 					<mStayOpen>0</mStayOpen>
