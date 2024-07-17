@@ -1,4 +1,7 @@
 LW = LW or {}
+LW.triggers = LW.triggers or {}
+
+local EMCO = require("LostWishes.emco")
 
 function LW.createUI()
 
@@ -21,20 +24,33 @@ function LW.createUI()
         width = "100%", height = "100%",
         color = "white",
     }, LW.userWindow)
-
-    -- Add a text box to the chat container
-    LW.chatBox = Geyser.MiniConsole:new({
-        name = "chatBox",
-        x = "0%", y = "0%",
-        width = "100%",
-        v_policy = Geyser.Dynamic,
-        wrapAt = "auto",
-        autoWrap = true,
-    }, LW.vbox)
     
-    -- Set font and background color for better visibility
-    LW.chatBox:setFontSize(12)
-    LW.chatBox:setColor(0, 0, 0) -- Black background
+    LW.chatBox = EMCO:new({
+        name = "chatBox",
+        x = "0",
+        y = "0",
+        width = "100%",
+        height = "100%",
+        allTab = true,
+        allTabName = "All",
+        consoleContainerColor = "transparent",
+        gap = 2,
+        leftMargin = 10,
+        topMargin = 10,
+        rightMargin = 10,
+        bottomMargin = 10,
+        consoleColor = "#101014",
+        consoles = {"Chat", "Guild", "Party", "Tell", "All"},
+        mapTab = false,
+        activeTabCSS = stylesheet,
+        inactiveTabCSS = istylesheet,
+        preserveBackground = false,
+        timestamp = true,
+        customTimestampColor = true,
+        timestampFGColor = "dim_gray",
+        timestampBGColor = "#101014",
+        v_policy = Geyser.Dynamic,
+    }, LW.vbox)
 
     -- Add the separator
     LW.separator = Geyser.Label:new({
@@ -118,6 +134,62 @@ end
 
 -- Create the UI when Mudlet starts
 LW.createUI()
+
+function LW.begin_comm(channel, source, message)
+  if LW.chat_object then
+    LW.appendChatObject(LW.chat_object)
+    LW.chat_object = nil
+  end
+
+  LW.chat_object = {
+      channel = channel,
+      source = source,
+      expecting_more_data = true,
+      lines = { message }
+  }
+
+  -- Start a timer to check if the sub-trigger fires
+  tempTimer(0.1, function()
+      if LW.chat_object and LW.chat_object.expecting_more_data then
+          LW.appendChatObject(LW.chat_object)
+  
+          -- Reset the chat_object
+          LW.chat_object = nil
+      end
+  end)
+end
+
+function LW.continue_comm(message)
+    table.insert(LW.chat_object.lines, " " .. message)
+
+    -- Start a timer to check if the sub-trigger fires
+    tempTimer(0.1, function()
+        if LW.chat_object and LW.chat_object.expecting_more_data then
+            LW.appendChatObject(LW.chat_object)
+
+            -- Reset the chat_object
+            LW.chat_object = nil
+       end
+    end)
+end
+
+function LW.appendChatObject(chat_object)
+  local message = table.concat(LW.chat_object.lines) .. "\n"
+
+  LW.chatBox:decho(chat_object.channel, LW.chat_object.source .. " " .. ansi2decho(message), false)
+end
+
+function LW.appendChat(chatTab, message)
+    -- Trim the message, but ensure there is a newline on the end.
+    message = message:match("^%s*(.-)%s*$")
+    message = message .. "\n"
+    
+    LW.chatBox:decho(chatTab, message, false)
+end
+
+function LW.appendChat2(message)    
+    LW.chatBox:xEcho("All", message, "a", false)
+end
 
 -- GMCP handler function
 function LW.handleGMCPMessage()

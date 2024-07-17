@@ -1,0 +1,74 @@
+[
+       {
+              "name": "Party On",
+              "isActive": "yes",
+              "isFolder": "no",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "no",
+              "filter": "no",
+              "fireLength": "0",
+              "highlight": "no",
+              "highlightFG": "#ff0000",
+              "highlightBG": "#ffff00",
+              "patterns": [
+                     {
+                            "pattern": "You form a new party.",
+                            "type": "substring"
+                     },
+                     {
+                            "pattern": "joins the party.",
+                            "type": "substring"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "Party Off",
+              "isActive": "yes",
+              "isFolder": "no",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "no",
+              "filter": "no",
+              "fireLength": "0",
+              "highlight": "no",
+              "highlightFG": "#ff0000",
+              "highlightBG": "#ffff00",
+              "patterns": [
+                     {
+                            "pattern": "Your party has been disbanded.",
+                            "type": "substring"
+                     },
+                     {
+                            "pattern": "You leave the party.",
+                            "type": "substring"
+                     },
+                     {
+                            "pattern": "You are not in a party.",
+                            "type": "substring"
+                     }
+              ],
+              "script": ""
+       },
+       {
+              "name": "Get Party Name",
+              "isActive": "yes",
+              "isFolder": "no",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "no",
+              "filter": "no",
+              "fireLength": "0",
+              "highlight": "no",
+              "highlightFG": "#ff0000",
+              "highlightBG": "#ffff00",
+              "patterns": [
+                     {
+                            "pattern": "^\\[PARTY\\]\\s+(?\u003cpartyname\u003e\\w+)\\s+has\\s+\\d+\\s+members",
+                            "type": "regex"
+                     }
+              ],
+              "script": ""
+       }
+]

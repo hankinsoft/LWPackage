@@ -1,0 +1,138 @@
+[
+       {
+              "name": "Bandits",
+              "isActive": "yes",
+              "isFolder": "no",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "no",
+              "filter": "no",
+              "fireLength": "3",
+              "highlight": "no",
+              "highlightFG": "#ff0000",
+              "highlightBG": "#ffff00",
+              "patterns": [
+                     {
+                            "pattern": "^\\(\\-\\-\\ (?\u003cchannel\u003eBandit)\\ \\-\\-\\)\\ (?\u003ctalker\u003e(\\w+))\\ (?\u003cglvl\u003e(\\\u003cGL.*\\\u003e))?\\ ?(?\u003cemote\u003e:?)\\ ?(?\u003cwhat\u003e.*)",
+                            "type": "regex"
+                     }
+              ],
+              "script": "",
+              "children": [
+                     {
+                            "name": "Wrapped Line",
+                            "isActive": "yes",
+                            "isFolder": "no",
+                            "multiline": "no",
+                            "multielineDelta": "0",
+                            "matchall": "no",
+                            "filter": "no",
+                            "fireLength": "0",
+                            "highlight": "no",
+                            "highlightFG": "#ff0000",
+                            "highlightBG": "#ffff00",
+                            "patterns": [
+                                   {
+                                          "pattern": "^    (.*)",
+                                          "type": "regex"
+                                   }
+                            ],
+                            "script": ""
+                     }
+              ]
+       },
+       {
+              "name": "Others",
+              "isActive": "yes",
+              "isFolder": "no",
+              "multiline": "no",
+              "multielineDelta": "0",
+              "matchall": "no",
+              "filter": "no",
+              "fireLength": "3",
+              "highlight": "no",
+              "highlightFG": "#ff0000",
+              "highlightBG": "#ffff00",
+              "patterns": [
+                     {
+                            "pattern": "^{\\[NECRO\\]}\\ (.*:)(.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^{\\[NECRO\\]}\\ (.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\[DS\\]\\ (.*:)(.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\[DS\\]\\ (.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\{\\ \\ Gargoyles\\ \\ \\}\\ (.*:)(.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\{\\ \\ Gargoyles\\ \\ \\}\\ (.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\(\\(Acolytes\\)\\)\\ (.*:)(.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\(\\(Acolytes\\)\\)\\ (.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\{\\(Psionic\\)\\}\\ (.*:)(.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\{\\(Psionic\\)\\}\\ (.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\{\\(Mercs\\)\\}\\ (.*:)(.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\{\\(Mercs\\)\\}\\ (.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\{Wayfarer\\}\\ (.*:)(.*)",
+                            "type": "regex"
+                     },
+                     {
+                            "pattern": "^\\{Wayfarer\\}\\ (.*)",
+                            "type": "regex"
+                     }
+              ],
+              "script": "",
+              "children": [
+                     {
+                            "name": "Wrapped Line",
+                            "isActive": "yes",
+                            "isFolder": "no",
+                            "multiline": "no",
+                            "multielineDelta": "0",
+                            "matchall": "no",
+                            "filter": "no",
+                            "fireLength": "0",
+                            "highlight": "no",
+                            "highlightFG": "#ff0000",
+                            "highlightBG": "#ffff00",
+                            "patterns": [
+                                   {
+                                          "pattern": "^    (.*)",
+                                          "type": "regex"
+                                   }
+                            ],
+                            "script": ""
+                     }
+              ]
+       }
+]

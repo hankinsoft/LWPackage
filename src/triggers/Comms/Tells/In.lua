@@ -1,5 +1,3 @@
---deleteLine();
-chat_color = "<red>";
-cecho(LW.chatBox.name, "\n" .. getTime(true, "h:mmAP ") .. chat_color .. "<<" .. matches[2] .. ":");
-chat_color = "<white>";
-cecho(LW.chatBox.name, chat_color .. matches[3]);
+LW.begin_comm("Tell",
+             "<255,255,0>" .. matches[2] .. "<11,233,2>" .. " tells " .. matches[3] ..":<r>",
+             matches[4]:match("^%s*(.-)%s*$"));
