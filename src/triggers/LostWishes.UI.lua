@@ -234,7 +234,7 @@ function LW.updateVitals()
 
         -- Update HP bar
         if maxHp ~= 0 then
-            LW.hpBar:setValue(hp, math.min(hp, maxHp), string.format("HP: %d/%d", hp, maxHp))
+            LW.hpBar:setValue(math.min(hp, maxHp), maxHp, string.format("HP: %d/%d", hp, maxHp))
             LW.hpBar:show()
         else
             LW.hpBar:setValue(0, 0, string.format("HP: %d/%d", 0, 0))
@@ -243,7 +243,7 @@ function LW.updateVitals()
 
         -- Update SP bar
         if maxSp ~= 0 then
-            LW.spBar:setValue(sp, math.min(sp, maxSp), string.format("SP: %d/%d", sp, maxSp))
+            LW.spBar:setValue(math.min(sp, maxSp), maxSp, string.format("SP: %d/%d", sp, maxSp))
             LW.spBar:show()
         else
             LW.spBar:setValue(0, 0, string.format("SP: %d/%d", 0, 0))
@@ -252,7 +252,7 @@ function LW.updateVitals()
 
         -- Update GP bar if maxGp is not zero
         if maxGp ~= 0 then
-            LW.gpBar:setValue(gp, math.min(gp, maxGp), string.format("GP: %d/%d", gp, maxGp))
+            LW.gpBar:setValue(math.min(gp, maxGp), maxGp, string.format("GP: %d/%d", gp, maxGp))
             LW.gpBar:show() -- Make the GP bar visible
         else
             LW.gpBar:hide() -- Hide the GP bar if maxGp is zero
