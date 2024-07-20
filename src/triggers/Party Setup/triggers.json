@@ -65,7 +65,7 @@
               "highlightBG": "#ffff00",
               "patterns": [
                      {
-                            "pattern": "^\\[PARTY\\]\\s+(?\u003cpartyname\u003e\\w+)\\s+has\\s+\\d+\\s+members",
+                            "pattern": "^\\[PARTY\\]\\s+(?\u003cpartyname\u003e\\w+)\\s+has\\s+\\d+\\s+members?",
                             "type": "regex"
                      }
               ],
