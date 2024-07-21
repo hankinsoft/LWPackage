@@ -39,7 +39,7 @@ function LW.createUI()
         topMargin = 10,
         rightMargin = 10,
         bottomMargin = 10,
-        consoleColor = "#101014",
+        consoleColor = "black",
         consoles = {"Chat", "Guild", "Party", "Tell", "All"},
         mapTab = false,
         activeTabCSS = stylesheet,
@@ -48,7 +48,7 @@ function LW.createUI()
         timestamp = true,
         customTimestampColor = true,
         timestampFGColor = "dim_gray",
-        timestampBGColor = "#101014",
+        timestampBGColor = "black",
         v_policy = Geyser.Dynamic,
     }, LW.vbox)
 
