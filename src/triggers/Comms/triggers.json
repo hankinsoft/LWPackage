@@ -77,7 +77,7 @@
               "highlightBG": "#ffff00",
               "patterns": [
                      {
-                            "pattern": "^\\[(?\u003cchannel\u003e[\\w\\s]+)\\]:? (?\u003ctalker\u003e\\w+)(?\u003cseparator\u003e:?) (?\u003cwhat\u003e.*)",
+                            "pattern": "^\\[(?\u003cchannel\u003e[\\w\\s.,-]+)\\]:? (?\u003ctalker\u003e[\\w\\s.,-]+)(?\u003cseparator\u003e:?) (?\u003cwhat\u003e.*)",
                             "type": "regex"
                      }
               ],
